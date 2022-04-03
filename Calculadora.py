@@ -1,9 +1,14 @@
 
-def calculadora():
-    print('\n','-' * 40, '\n         C A L C U L A D O R A', '\n', '-' * 40 )
+def quebra():
+    print('-' * 40)
+
+def titulo():
+    quebra()
+    print(f"{'C A L C U L A D O R A': ^40}")
+    quebra()
 
 def menu():
-    calculadora()
+    quebra()
     print(f"{'M E N U': ^40}")
     print('1. Somar'
           '\n2. Subtrair'
@@ -12,7 +17,8 @@ def menu():
           '\n5. Porcentagem'
           '\n6. Potência'
           '\n7. Digitar outros números'
-          '\n8. Sair\n')
+          '\n8. Sair')
+    quebra()
 
 def somar(n1=0,n2=0):
     r = n1 + n2
@@ -38,12 +44,14 @@ def potencia(n1=0, n2=0):
     r = n1 ** n2
     return r
 
+titulo()
+print('informe valores...')
 n1 = int(input('Número 1: '))
 n2 = int(input('Número 2: '))
 
 while n1 >= 0 or n2>=0:
     menu()
-    opcao = int(input('Qual operação realizar?  [1/2/3/4/5/6/7/8]?\n'))
+    opcao = int(input('Escolha Operação:  [1/2/3/4/5/6/7/8]?\n'))
 
     if opcao < 1 or opcao > 8:
         print('\nOpção Inválida!\n')
@@ -51,32 +59,33 @@ while n1 >= 0 or n2>=0:
 
     if opcao == 1:
         res = somar(n1,n2)
-        print('SOMA\n{} + {} = {}'.format(n1,n2,res))
+        print('SOMA: {} + {} = {}'.format(n1,n2,res))
 
     elif opcao == 2:
         res = subtrair(n1,n2)
-        print('SUBTRAÇÃO\n{} - {} = {}'.format(n1,n2,res))
+        print('SUBTRAÇÃO: {} - {} = {}'.format(n1,n2,res))
 
     elif opcao == 3:
         res = multiplicar(n1,n2)
-        print('MULTIPLICAÇÃO\n{} * {} = {}'.format(n1,n2,res))
+        print('MULTIPLICAÇÃO: {} * {} = {}'.format(n1,n2,res))
 
     elif opcao == 4:
         res = dividir(n1,n2)
-        print('DIVISÃO\n{} / {} = {:.2f}'.format(n1,n2,res))
+        print('DIVISÃO: {} / {} = {:.2f}'.format(n1,n2,res))
 
     elif opcao == 5:
         res = porcentagem(n1,n2)
-        print('PORCENTAGEM\n{} % {} = {:.2f}'.format(n1,n2,res))
+        print('PORCENTAGEM: {} % {} = {:.2f}'.format(n1,n2,res))
 
     elif opcao == 6:
         res = potencia(n1,n2)
-        print('POTÊNCIA\n{} ^ {} = {:.2f}'.format(n1,n2,res))
+        print('POTÊNCIA: {} ^ {} = {:.2f}'.format(n1,n2,res))
 
     elif opcao == 7:
         n1 = int(input('Número 1: '))
         n2 = int(input('Número 2: '))
 
     elif opcao == 8:
-        print('Bye!')
+        print('Bye...')
+        quebra()
         break
